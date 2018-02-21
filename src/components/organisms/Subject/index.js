@@ -194,7 +194,7 @@ class Subject extends Component {
       <SubjectContent>
         <SubjectMain>
           <SubjectPanelHeader>
-            <h4>{name}</h4>
+            <h4>{this.props.name}</h4>
           </SubjectPanelHeader>
           <SubjectPanelContent>
 
@@ -267,6 +267,7 @@ class Subject extends Component {
 
 Subject.propTypes = {
   name: PropTypes.string.isRequired,
+  topics: PropTypes.array.isRequired,
 }
 
 export default Subject
