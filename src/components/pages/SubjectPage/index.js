@@ -25,6 +25,9 @@ const SubjectHeader = styled.ul`
           font-weight: 600;
           display: block;
           text-decoration: none;
+          &:hover {
+              opacity: .8;
+          }
       }
   }
   @media screen and (max-width: 720px) {

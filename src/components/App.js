@@ -1,7 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { injectGlobal, ThemeProvider } from 'styled-components'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { HomePage } from 'components'
 import { SubjectPage } from 'components'
@@ -28,10 +27,6 @@ const Wrapper = styled.div`
   }
 `
 
-HomePage.propTypes = {
-  reverse: PropTypes.bool.isRequired,
-}
-
 const App = (props) => {
   return (
     <ThemeProvider theme={theme}>
@@ -39,7 +34,6 @@ const App = (props) => {
         <Header />
         <Switch>
           <Wrapper {...props}>
-            <Route path="/" component={HomePage} exact />
             <Route path="/subjects" component={SubjectPage} />
           </Wrapper>
         </Switch>

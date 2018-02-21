@@ -5,6 +5,9 @@ import styled from 'styled-components'
 
 const Nav = styled.nav`
   display: flex;
+  a {
+      padding: 0 10px;
+  }
 `
 
 const NavWrap = styled.div`
@@ -18,7 +21,6 @@ const NavWrap = styled.div`
       font-size: 15px;
       color: #2c3e50;
       text-decoration: none;
-      padding: 0 10px;
       &:hover {
         color: #f63;
       }
