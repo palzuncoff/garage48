@@ -1,5 +1,6 @@
 // https://github.com/diegohaz/arc/wiki/Atomic-Design
-import React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import holder from './img/holder.png'
@@ -179,77 +180,94 @@ const SubjectPanelListCardButton = styled.button`
           background: #09c;
       }
 `
+class Subject extends Component {
+  state = {
+    topics: [],
+  }
 
-const Subject = ({ name }) =>
-    <SubjectContent>
-      <SubjectMain>
-        <SubjectPanelHeader>
-          <h4>{name}</h4>
-        </SubjectPanelHeader>
-        <SubjectPanelContent>
+  componentWillMount() {
 
-          <SubjectPanelList>
-            <li>
-              <span>01</span>
-              <SubjectPanelListCard>
-                <SubjectPanelListCardLabel>
-                  <CoubImage />
-                </SubjectPanelListCardLabel>
-                <SubjectPanelListCardBody>
-                  <Link to={`/subjects/${name}/topic1`}>Sub Topic - {name}</Link>
-                  <h3>Description</h3>
-                </SubjectPanelListCardBody>
-              </SubjectPanelListCard>
-              <SubjectPanelListCardButton>View</SubjectPanelListCardButton>
-            </li>
-            <li>
-              <span>02</span>
-              <SubjectPanelListCard>
-                <SubjectPanelListCardLabel>
-                  <ZigzagImage />
-                </SubjectPanelListCardLabel>
-                <SubjectPanelListCardBody>
-                  <Link to={`/subjects/${name}/topic2`}>Sub Topic - {name}</Link>
-                  <h3>Description</h3>
-                </SubjectPanelListCardBody>
-              </SubjectPanelListCard>
-              <SubjectPanelListCardButton>View</SubjectPanelListCardButton>
-            </li>
-            <li>
-              <span>03</span>
-              <SubjectPanelListCard>
-                <SubjectPanelListCardLabel>
-                  <HolderImage />
-                </SubjectPanelListCardLabel>
-                <SubjectPanelListCardBody>
-                  <Link to={`/subjects/${name}/topic3`}>Sub Topic - {name}</Link>
-                  <h3>Description</h3>
-                </SubjectPanelListCardBody>
-              </SubjectPanelListCard>
-              <SubjectPanelListCardButton>View</SubjectPanelListCardButton>
-            </li>
-          </SubjectPanelList>
+  }
 
-        </SubjectPanelContent>
-      </SubjectMain>
+  render() {
+    return (
+      <SubjectContent>
+        <SubjectMain>
+          <SubjectPanelHeader>
+            <h4>{this.props.name}</h4>
+          </SubjectPanelHeader>
+          <SubjectPanelContent>
 
-      <SubjectSide>
-        <SubjectSideContent>
-          <dl>
-            <dt>lorem</dt>
-            <dd>10%</dd>
-            <dt>lorem</dt>
-            <dd>20%</dd>
-            <dt>lorem</dt>
-            <dd>30%</dd>
-            <dt>lorem</dt>
-            <dd>40%</dd>
-            <dt>lorem</dt>
-            <dd>50%</dd>
-          </dl>
-        </SubjectSideContent>
-      </SubjectSide>
+            <SubjectPanelList>
+              <li>
+                <span>01</span>
+                <SubjectPanelListCard>
+                  <SubjectPanelListCardLabel>
+                    <CoubImage />
+                  </SubjectPanelListCardLabel>
+                  <SubjectPanelListCardBody>
+                    <Link to={`/subjects/${name}/topic1`}>Sub Topic - {name}</Link>
+                    <h3>Description</h3>
+                  </SubjectPanelListCardBody>
+                </SubjectPanelListCard>
+                <SubjectPanelListCardButton>View</SubjectPanelListCardButton>
+              </li>
+              <li>
+                <span>02</span>
+                <SubjectPanelListCard>
+                  <SubjectPanelListCardLabel>
+                    <ZigzagImage />
+                  </SubjectPanelListCardLabel>
+                  <SubjectPanelListCardBody>
+                    <Link to={`/subjects/${name}/topic2`}>Sub Topic - {name}</Link>
+                    <h3>Description</h3>
+                  </SubjectPanelListCardBody>
+                </SubjectPanelListCard>
+                <SubjectPanelListCardButton>View</SubjectPanelListCardButton>
+              </li>
+              <li>
+                <span>03</span>
+                <SubjectPanelListCard>
+                  <SubjectPanelListCardLabel>
+                    <HolderImage />
+                  </SubjectPanelListCardLabel>
+                  <SubjectPanelListCardBody>
+                    <Link to={`/subjects/${name}/topic3`}>Sub Topic - {name}</Link>
+                    <h3>Description</h3>
+                  </SubjectPanelListCardBody>
+                </SubjectPanelListCard>
+                <SubjectPanelListCardButton>View</SubjectPanelListCardButton>
+              </li>
+            </SubjectPanelList>
 
-    </SubjectContent>
+          </SubjectPanelContent>
+        </SubjectMain>
+
+        <SubjectSide>
+          <SubjectSideContent>
+            <dl>
+              <dt>lorem</dt>
+              <dd>10%</dd>
+              <dt>lorem</dt>
+              <dd>20%</dd>
+              <dt>lorem</dt>
+              <dd>30%</dd>
+              <dt>lorem</dt>
+              <dd>40%</dd>
+              <dt>lorem</dt>
+              <dd>50%</dd>
+            </dl>
+          </SubjectSideContent>
+        </SubjectSide>
+
+      </SubjectContent>
+    );
+  }
+};
+
+Subject.propTypes = {
+  name: PropTypes.string.isRequired,
+  topics: PropTypes.array.isRequired,
+}
 
 export default Subject
