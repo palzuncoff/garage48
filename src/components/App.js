@@ -27,13 +27,13 @@ const Wrapper = styled.div`
   }
 `
 
-const App = (props) => {
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <div>
         <Header />
         <Switch>
-          <Wrapper {...props}>
+          <Wrapper>
             <Route path="/subjects" component={SubjectPage} />
           </Wrapper>
         </Switch>

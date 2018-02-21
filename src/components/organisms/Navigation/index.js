@@ -48,10 +48,10 @@ const UserNav = styled.ul`
   }
 `
 
-const Navigation = (props) =>
-    <NavWrap {...props}>
+const Navigation = () =>
+    <NavWrap>
       <Link to="/">Home</Link>
-      <Nav {...props}>
+      <Nav>
         <Link to="/subjects">Subjects</Link>
         <UserNav>
           <Link to="/">Sign up</Link>
