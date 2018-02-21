@@ -20,14 +20,11 @@ const Wrapper = styled.div`
 `
 
 
-const Header = (props) => {
-  return (
+const Header = (props) =>
     <Head>
       <Wrapper opaque reverse {...props}>
         <Navigation />
       </Wrapper>
     </Head>
-  )
-}
 
 export default Header

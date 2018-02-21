@@ -180,8 +180,7 @@ const SubjectPanelListCardButton = styled.button`
       }
 `
 
-const Subject = ({ name }) => {
-  return (
+const Subject = ({ name }) =>
     <SubjectContent>
       <SubjectMain>
         <SubjectPanelHeader>
@@ -252,8 +251,5 @@ const Subject = ({ name }) => {
       </SubjectSide>
 
     </SubjectContent>
-
-  )
-}
 
 export default Subject

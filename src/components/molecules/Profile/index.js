@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import avatar from './img/avatar.png'
 
@@ -117,7 +116,7 @@ const ProfileDataList = styled.ul`
     }
 `
 
-const Profile = ({ children, ...props }) => {
+const Profile = ({ ...props }) => {
   return (
     <ProfileHeader {...props}>
       <ProfileBg>
@@ -135,12 +134,6 @@ const Profile = ({ children, ...props }) => {
       </ProfileBg>
     </ProfileHeader>
   )
-}
-
-Profile.propTypes = {
-  cite: PropTypes.string,
-  children: PropTypes.node,
-  reverse: PropTypes.bool,
 }
 
 export default Profile

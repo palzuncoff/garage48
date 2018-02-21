@@ -32,8 +32,7 @@ const SubjectHeader = styled.ul`
   }
 `
 
-const SubjectPage = () => {
-  return (
+const SubjectPage = () =>
     <div>
       <Profile />
       <SubjectHeader>
@@ -58,7 +57,5 @@ const SubjectPage = () => {
         component={({ match }) => <Subject name={match.params.subjectId} />}
       />
     </div>
-  )
-}
 
 export default SubjectPage

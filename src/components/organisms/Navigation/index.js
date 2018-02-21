@@ -46,8 +46,7 @@ const UserNav = styled.ul`
   }
 `
 
-const Navigation = (props) => {
-  return (
+const Navigation = (props) =>
     <NavWrap {...props}>
       <Link to="/">Home</Link>
       <Nav {...props}>
@@ -57,7 +56,5 @@ const Navigation = (props) => {
         </UserNav>
       </Nav>
     </NavWrap>
-  )
-}
 
 export default Navigation

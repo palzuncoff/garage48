@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 `
 
 HomePage.propTypes = {
-  reverse: PropTypes.bool,
+  reverse: PropTypes.bool.isRequired,
 }
 
 const App = (props) => {
