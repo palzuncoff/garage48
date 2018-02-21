@@ -6,9 +6,9 @@ import holder from './img/holder.png'
 import coub from './img/coub.jpg'
 import zigzag from './img/zigzag.png'
 
-const HolderImage = props => <img alt="Logo" {...props} src={holder} />
-const CoubImage = props => <img alt="Logo" {...props} src={coub} />
-const ZigzagImage = props => <img alt="Logo" {...props} src={zigzag} />
+const HolderImage = () => <img alt="Logo" src={holder} />
+const CoubImage = () => <img alt="Logo" src={coub} />
+const ZigzagImage = () => <img alt="Logo" src={zigzag} />
 
 const SubjectContent = styled.section`
     display: flex;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import avatar from './img/avatar.png'
 
-const AvatarImg = props => <img alt="avatar" src={avatar} />
+const AvatarImg = () => <img alt="avatar" src={avatar} />
 
 const ProfileHeader = styled.div`
     position: relative;

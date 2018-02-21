@@ -20,9 +20,9 @@ const Wrapper = styled.div`
 `
 
 
-const Header = (props) =>
+const Header = () =>
     <Head>
-      <Wrapper opaque reverse {...props}>
+      <Wrapper>
         <Navigation />
       </Wrapper>
     </Head>
