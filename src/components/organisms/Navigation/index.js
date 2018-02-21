@@ -26,6 +26,7 @@ const NavWrap = styled.div`
 `
 
 const UserNav = styled.ul`
+  list-style: none;
   display: flex;
   align-items: center;
   margin: 0;
