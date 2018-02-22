@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Route, Link } from 'react-router-dom'
-import { Subject } from 'components'
+import { Subject } from 'containers'
 import Profile from '../../molecules/Profile'
 
 const SubjectHeader = styled.ul`
