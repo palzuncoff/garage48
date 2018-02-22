@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { HomePage } from 'components'
 import { SubjectPage } from 'components'
 import { Header } from 'components'
+import { SignUpPage } from 'components'
 // https://github.com/diegohaz/arc/wiki/Styling
 import theme from './themes/default'
 
@@ -35,6 +36,7 @@ const App = () => {
         <Switch>
           <Wrapper>
             <Route path="/subjects" component={SubjectPage} />
+            <Route path="/sign-up" component={SignUpPage} />
           </Wrapper>
         </Switch>
       </div>

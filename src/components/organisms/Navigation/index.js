@@ -1,6 +1,7 @@
 // https://github.com/diegohaz/arc/wiki/Atomic-Design
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { SignUpPage } from 'components'
 import styled from 'styled-components'
 
 const Nav = styled.nav`
@@ -54,7 +55,7 @@ const Navigation = () =>
       <Nav>
         <Link to="/subjects">Subjects</Link>
         <UserNav>
-          <Link to="/">Sign up</Link>
+          <Link to="/sign-up">Sign up</Link>
         </UserNav>
       </Nav>
     </NavWrap>
