@@ -266,8 +266,10 @@ class Subject extends Component {
 };
 
 Subject.propTypes = {
-  name: PropTypes.string.isRequired,
-  topics: PropTypes.array.isRequired,
+  subject: PropTypes.object.isRequired,
+  list: PropTypes.array,
+  loading: PropTypes.bool,
+  failed: PropTypes.bool,
 }
 
 export default Subject
