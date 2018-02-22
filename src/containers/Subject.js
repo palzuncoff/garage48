@@ -1,31 +1,35 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { loadTopicsBySubject } from 'store/actions'
+import { loadSubject } from 'store/actions'
 
 import { Subject } from 'components'
 
 class SubjectContainer extends Component {
   static propTypes = {
     subject: PropTypes.object,
-    loading: PropTypes.bool,
-    failed: PropTypes.bool,
-    list: PropTypes.array.isRequired,
-    readList: PropTypes.func.isRequired,
+    // loading: PropTypes.bool,
+    // failed: PropTypes.bool,
+    // list: PropTypes.array.isRequired,
+    loadSubject: PropTypes.func.isRequired,
   }
 
   componentWillMount() {
-    this.props.readList()
+    this.props.loadSubject(this.props.subjectId)
   }
 
   render() {
-    const { list, loading, failed } = this.props
-    return <Subject {...{ list, loading, failed }} />
+    const { subject = {} } = this.props
+    return <Subject subject={subject} />
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  loadTopics: () => dispatch(socialLoginPrepare('google', { clientId: googleClientId })),
+const mapStateToProps = (state, ownProps) => ({
+  subjectId: ownProps.name,
 })
 
-export default connect()(Subject)
+const mapDispatchToProps = {
+  loadSubject,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SubjectContainer)
