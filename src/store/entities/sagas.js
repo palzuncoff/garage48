@@ -2,17 +2,13 @@
 // https://github.com/diegohaz/arc/wiki/Example-redux-modules#resource
 import { put, call, takeEvery } from 'redux-saga/effects'
 import * as actions from './actions'
+import Subjects from './fixtures'
 
 export function* loadSubject({ payload }) {
   const subjectId = payload;
   try {
-    // const list = yield call([api, api.get], `/${resource}`, { params })
-    yield put(actions.loadSubjectSuccess({
-      puta: 'madre',
-      pincho: 'pendeho',
-      massiv: {},
-      _id: subjectId
-    }))
+    const subject = Subjects.find(sub => sub._id === subjectId)
+    yield put(actions.loadSubjectSuccess(subject))
   } catch (e) {
     yield put(actions.loadSubjectFailure(e, subjectId))
   }

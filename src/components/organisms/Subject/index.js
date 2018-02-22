@@ -1,5 +1,5 @@
 // https://github.com/diegohaz/arc/wiki/Atomic-Design
-import React, { Component } from 'react'
+import React, { Component, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
@@ -181,65 +181,34 @@ const SubjectPanelListCardButton = styled.button`
       }
 `
 class Subject extends Component {
-  state = {
-    topics: [],
-  }
-
-  componentWillMount() {
-
-  }
+  renderTopics = (topic, index) =>(
+    <li key={topic._id}>
+      <span>{index + 1}</span>
+      <SubjectPanelListCard>
+        <SubjectPanelListCardLabel>
+          <CoubImage />
+        </SubjectPanelListCardLabel>
+        <SubjectPanelListCardBody>
+          <Link to={`/subjects/${topic._id}/topic1`}>Sub Topic - {topic.name}</Link>
+          <h3>Description</h3>
+        </SubjectPanelListCardBody>
+      </SubjectPanelListCard>
+      <SubjectPanelListCardButton>View</SubjectPanelListCardButton>
+    </li>
+  )
 
   render() {
+    const { subject } = this.props
     return (
       <SubjectContent>
         <SubjectMain>
           <SubjectPanelHeader>
-            <h4>{this.props.name}</h4>
+            <h4>{subject.name}</h4>
           </SubjectPanelHeader>
           <SubjectPanelContent>
-
             <SubjectPanelList>
-              <li>
-                <span>01</span>
-                <SubjectPanelListCard>
-                  <SubjectPanelListCardLabel>
-                    <CoubImage />
-                  </SubjectPanelListCardLabel>
-                  <SubjectPanelListCardBody>
-                    <Link to={`/subjects/${name}/topic1`}>Sub Topic - {name}</Link>
-                    <h3>Description</h3>
-                  </SubjectPanelListCardBody>
-                </SubjectPanelListCard>
-                <SubjectPanelListCardButton>View</SubjectPanelListCardButton>
-              </li>
-              <li>
-                <span>02</span>
-                <SubjectPanelListCard>
-                  <SubjectPanelListCardLabel>
-                    <ZigzagImage />
-                  </SubjectPanelListCardLabel>
-                  <SubjectPanelListCardBody>
-                    <Link to={`/subjects/${name}/topic2`}>Sub Topic - {name}</Link>
-                    <h3>Description</h3>
-                  </SubjectPanelListCardBody>
-                </SubjectPanelListCard>
-                <SubjectPanelListCardButton>View</SubjectPanelListCardButton>
-              </li>
-              <li>
-                <span>03</span>
-                <SubjectPanelListCard>
-                  <SubjectPanelListCardLabel>
-                    <HolderImage />
-                  </SubjectPanelListCardLabel>
-                  <SubjectPanelListCardBody>
-                    <Link to={`/subjects/${name}/topic3`}>Sub Topic - {name}</Link>
-                    <h3>Description</h3>
-                  </SubjectPanelListCardBody>
-                </SubjectPanelListCard>
-                <SubjectPanelListCardButton>View</SubjectPanelListCardButton>
-              </li>
+              {subject.topics.map(this.renderTopics)}
             </SubjectPanelList>
-
           </SubjectPanelContent>
         </SubjectMain>
 
@@ -267,9 +236,6 @@ class Subject extends Component {
 
 Subject.propTypes = {
   subject: PropTypes.object.isRequired,
-  // list: PropTypes.array,
-  // loading: PropTypes.bool,
-  // failed: PropTypes.bool,
 }
 
 export default Subject

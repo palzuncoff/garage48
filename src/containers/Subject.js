@@ -2,15 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { loadSubject } from 'store/actions'
+import { getSubject } from '../store/entities/selectors'
 
 import { Subject } from 'components'
 
 class SubjectContainer extends Component {
   static propTypes = {
     subject: PropTypes.object,
-    // loading: PropTypes.bool,
-    // failed: PropTypes.bool,
-    // list: PropTypes.array.isRequired,
+    name: PropTypes.string.isRequired,
     loadSubject: PropTypes.func.isRequired,
   }
 
@@ -26,6 +25,7 @@ class SubjectContainer extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
   subjectId: ownProps.name,
+  subject: getSubject(state, ownProps.name),
 })
 
 const mapDispatchToProps = {
