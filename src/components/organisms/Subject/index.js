@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import holder from './img/holder.png'
 import coub from './img/coub.jpg'
 import zigzag from './img/zigzag.png'
+import { Topic } from 'components'
 
 const HolderImage = () => <img alt="Logo" src={holder} />
 const CoubImage = () => <img alt="Logo" src={coub} />
@@ -181,7 +182,15 @@ const SubjectPanelListCardButton = styled.button`
       }
 `
 class Subject extends Component {
-  renderTopics = (topic, index) => (
+  state = {
+   activeTopic: null,
+  }
+
+  setActive = activeTopic => this.setState({ activeTopic })
+
+  resetActive = () => this.setState({ activeTopic: null })
+
+  renderTopicPreview = (topic, index) => (
     <li key={topic._id}>
       <span>{index + 1}</span>
       <SubjectPanelListCard>
@@ -189,7 +198,7 @@ class Subject extends Component {
           <CoubImage />
         </SubjectPanelListCardLabel>
         <SubjectPanelListCardBody>
-          <Link to={`/topics/${topic._id}`}>Sub Topic - {topic.name}</Link>
+          <span onClick={() => this.setActive(topic)}>Sub Topic - {topic.name}</span>
           <h3>Description</h3>
         </SubjectPanelListCardBody>
       </SubjectPanelListCard>
@@ -199,6 +208,7 @@ class Subject extends Component {
 
   render() {
     const { subject } = this.props
+    const { activeTopic } = this.state;
     return (
       <SubjectContent>
         <SubjectMain>
@@ -206,9 +216,13 @@ class Subject extends Component {
             <h4>{subject.name}</h4>
           </SubjectPanelHeader>
           <SubjectPanelContent>
-            <SubjectPanelList>
-              {subject.topics.map(this.renderTopics)}
-            </SubjectPanelList>
+            {activeTopic ? (
+                <Topic onBack={this.resetActive} topic={activeTopic} />
+              ) : (
+              <SubjectPanelList>
+                {subject.topics.map(this.renderTopicPreview)}
+              </SubjectPanelList>
+            )}
           </SubjectPanelContent>
         </SubjectMain>
 
