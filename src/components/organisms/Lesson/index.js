@@ -61,30 +61,34 @@ class Lesson extends Component {
         <Cone>
                 <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220">
                     <g stroke="#333" fill="none">
-                        <path 
-                        d="M208.430591,174.705882 L110,10 L11.569409,174.705882 a100,30 0 1,0 196.861182,0" strokeWidth="3"/>
-                        <path 
-                        d="M11.1314,174.705882 a100,30 0 0,1 196.861182,0" 
-                        strokeDasharray="5,5" 
-                        strokeWidth="3"/>
                         <path
-                        className="cone-triangle-1" 
-                        fill="none" 
-                        stroke="#333" 
-                        strokeWidth="2" 
-                        d="M110.119,179.967v-0.059h99.879"/>
-                        <path 
-                        className="cone-triangle-2" 
-                        fill="none" 
-                        stroke="#333" 
-                        strokeWidth="1" 
-                        d="M210.471,178.059l-0.102,0.061L109.948,10.393"/>
-                        <path 
-                        className="cone-triangle-3" 
-                        fill="none" 
-                        stroke="#333" 
-                        strokeWidth="2" 
-                        d="M109.833,180H109.8V10"/>
+                          d="M208.430591,174.705882 L110,10 L11.569409,174.705882 a100,30 0 1,0 196.861182,0" strokeWidth="3"/>
+                        <path
+                          d="M11.1314,174.705882 a100,30 0 0,1 196.861182,0"
+                          strokeDasharray="5,5"
+                          strokeWidth="3"
+                        />
+                        <path
+                          className="cone-triangle-1"
+                          fill="none"
+                          stroke="#333"
+                          strokeWidth="2"
+                          d="M110.119,179.967v-0.059h99.879"
+                        />
+                        <path
+                          className="cone-triangle-2"
+                          fill="none"
+                          stroke="#333"
+                          strokeWidth="1"
+                          d="M210.471,178.059l-0.102,0.061L109.948,10.393"
+                        />
+                        <path
+                          className="cone-triangle-3"
+                          fill="none"
+                          stroke="#333"
+                          strokeWidth="2"
+                          d="M109.833,180H109.8V10"
+                        />
                     </g>
                     <text x="95" y="100">H</text>
                     <text x="150" y="175">R</text>
