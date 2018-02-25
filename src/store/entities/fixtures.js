@@ -17,6 +17,11 @@ export default [
         _id: ',awitluut.ygabg',
         name: 'Accuracy',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      },
+      {
+        _id: ',awitluut.ygabg1',
+        name: 'Accuracy',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       }
     ]
   },
@@ -36,6 +41,11 @@ export default [
       },
       {
         _id: 'bs8er7galyrgvlavrg',
+        name: 'Historical methods',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      },
+      {
+        _id: 'bs8er7galyrgvlavrg2',
         name: 'Historical methods',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       }
@@ -59,6 +69,11 @@ export default [
         _id: 'hroeuyavoeuybparbgepr4',
         name: 'Genetics',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      },
+      {
+        _id: 'hroeuyavoeuybparbgepr43',
+        name: 'Genetics',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       }
     ]
   },
@@ -80,6 +95,11 @@ export default [
         _id: 'ejrhg9e4h9eghiuebgie',
         name: 'Genetics',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      },
+      {
+        _id: 'ejrhg9e4h9eghiuebgie4',
+        name: 'Genetics',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       }
     ]
   },
@@ -99,6 +119,11 @@ export default [
       },
       {
         _id: 'hsigeei48ge84gsboiue7g8e',
+        name: 'Genetics',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      },
+      {
+        _id: 'hsigeei48ge84gsboiue7g8e5',
         name: 'Genetics',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       }
