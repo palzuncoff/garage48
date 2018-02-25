@@ -6,6 +6,7 @@ import { HomePage } from 'components'
 import { SubjectPage } from 'components'
 import { Header } from 'components'
 import { SignUpPage } from 'components'
+import { Topic } from 'components'
 // https://github.com/diegohaz/arc/wiki/Styling
 import theme from './themes/default'
 
@@ -37,6 +38,10 @@ const App = () => {
           <Wrapper>
             <Route path="/subjects" component={SubjectPage} />
             <Route path="/sign-up" component={SignUpPage} />
+            <Route
+              path="/topics/:topicId"
+              component={({ match }) => <Topic name={match.params.subjectId} />}
+            />
           </Wrapper>
         </Switch>
       </div>

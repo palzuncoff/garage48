@@ -181,7 +181,7 @@ const SubjectPanelListCardButton = styled.button`
       }
 `
 class Subject extends Component {
-  renderTopics = (topic, index) =>(
+  renderTopics = (topic, index) => (
     <li key={topic._id}>
       <span>{index + 1}</span>
       <SubjectPanelListCard>
@@ -189,7 +189,7 @@ class Subject extends Component {
           <CoubImage />
         </SubjectPanelListCardLabel>
         <SubjectPanelListCardBody>
-          <Link to={`/subjects/${topic._id}/topic1`}>Sub Topic - {topic.name}</Link>
+          <Link to={`/topics/${topic._id}`}>Sub Topic - {topic.name}</Link>
           <h3>Description</h3>
         </SubjectPanelListCardBody>
       </SubjectPanelListCard>
