@@ -6,7 +6,26 @@ import { Link, Route } from 'react-router-dom'
 import styled from 'styled-components'
 
 const BackToSubjects = styled.div`
-  background: red;
+  button {
+    margin-right: 23px;
+    color: #fff;
+    background: #3ecf8e;
+    text-shadow: 0 1px 3px rgba(36,180,126,.4);
+    white-space: nowrap;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 14px;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .025em;
+    text-decoration: none;
+    transition: all .15s ease;
+    cursor: pointer;
+  }
 `
 
 const TopicList = styled.ul`
@@ -177,8 +196,7 @@ class Topic extends Component {
     return (
       <div>
         <BackToSubjects>
-          <button type="button" onClick={onBack}>&larr;</button>
-          <span>{topic.name}</span>
+          <button type="button" onClick={onBack}>&larr; <span>{topic.name}</span></button>
         </BackToSubjects>
 
         {activeLesson ? (
