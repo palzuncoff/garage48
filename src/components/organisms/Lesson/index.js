@@ -155,7 +155,6 @@ class Lesson extends Component {
   render() {
     const { name } = this.props;
     const { captionId, testId, canMoveOn } = this.state
-    console.log(this.state);
 
     return (
       <div>
@@ -174,7 +173,7 @@ class Lesson extends Component {
               />
               <path
                 onClick={() => this.setCaption('r')}
-                className="cone-triangle-1"
+                className={`cone-triangle-1 ${captionId === 'r' ? 'cone-triangle-1--active' : ''}`}
                 fill="none"
                 stroke="#333"
                 strokeWidth="2"
@@ -182,7 +181,7 @@ class Lesson extends Component {
               />
               <path
                 onClick={() => this.setCaption('h')}
-                className="cone-triangle-2"
+                className={`cone-triangle-2 ${captionId === 'h' ? 'cone-triangle-2--active' : ''}`}
                 fill="none"
                 stroke="#333"
                 strokeWidth="1"
@@ -190,7 +189,7 @@ class Lesson extends Component {
               />
               <path
                 onClick={() => this.setCaption('g')}
-                className="cone-triangle-3"
+                className={`cone-triangle-3 ${captionId === 'g' ? 'cone-triangle-3--active' : ''}`}
                 fill="none"
                 stroke="#333"
                 strokeWidth="2"
@@ -223,7 +222,7 @@ class Lesson extends Component {
             </div>
             : null
           }
-          {testId && testId === tests.length + 1 ?
+          {testId && testId === tests.length ?
             <input type="button" value="Done" onClick={this.startOver}/>
             : null
           }
