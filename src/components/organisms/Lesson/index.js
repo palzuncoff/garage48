@@ -75,7 +75,6 @@ class Lesson extends Component {
   render() {
     const { name } = this.props;
     const { captionId } = this.state
-    console.log(captionId)
 
     return (
       <div>
