@@ -315,6 +315,10 @@ const SignUpBt = styled.button`
     z-index: 1;
     color: #41baed;
     transition: color 0.3s;
+    a {
+        text-decoration: none;
+        color: #41baed;
+    }
     &:focus {
         outline: none;
     }
@@ -472,7 +476,9 @@ class SignUpPage extends Component {
                 </svg>
               </span>
             </SignUpInputEmailAndPassword>
-            <SignUpBt>Login</SignUpBt>
+            <SignUpBt>
+                <Link to="/subjects">Login</Link>
+            </SignUpBt>
             <SignUpFooterNav>
               <li className="login-footer__li">
                 <Link to="/" className="login-footer__link">Rigister</Link>

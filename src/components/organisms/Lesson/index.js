@@ -3,6 +3,9 @@ import React, { Component, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Carousel from 'react-slick'
 import styled from 'styled-components'
+import gFormul from './img/g.png'
+import hFormul from './img/h.png'
+import rFormul from './img/r.png'
 
 const tests = [
   <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1"/>,
@@ -28,9 +31,19 @@ const Cone = styled.div`
         cursor: pointer;
         stroke-width: 3;
       }
+      &:focus {
+        stroke: red;
+        cursor: pointer;
+        stroke-width: 3;
+      }
     }
     &-2 {
       &:hover {
+        stroke: blue;
+        cursor: pointer;
+        stroke-width: 3;
+      }
+      &:focus {
         stroke: blue;
         cursor: pointer;
         stroke-width: 3;
@@ -42,26 +55,56 @@ const Cone = styled.div`
         cursor: pointer;
         stroke-width: 3;
       }
+      &:focus {
+        stroke: orange;
+        cursor: pointer;
+        stroke-width: 3;
+      }
     }
+  }
+  @media screen and (max-width: 720px) {
+    flex-direction: column;
   }
 `
 
 const Crib = styled.ul`
   list-style: none;
+  padding: 2em;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  li {
+    list-style: none;
+    width: 300px;
+    img {
+      max-width: 100%;
+    }
+    span {
+      padding: 1em;
+      background: #eee;
+      border-radius: 3px;
+      box-shadow: 0 1px 2px rgba(0,0,0,.1);
+      margin-top: 1em;
+      display: inline-block;
+    }
+    h4 {
+      margin: 0;
+      @media screen and (max-width: 720px) {
+        display: block;
+      }
+    }
+  }
 `
 
 const captions = {
-  g: <li>
-    <h4>Generatorea</h4>
-    <span>G = R2 + H2</span>
-  </li>,
   r: <li>
-    <h4>Generatorea</h4>
-    <span>G = R4 + H4</span>
+    <img src={rFormul} alt="img" />
   </li>,
-  o: <li>
-    <h4>Generatorea</h4>
-    <span>G = R3 + H3</span>
+  h: <li>
+    <img src={gFormul} alt="img" />
+  </li>,
+  g: <li>
+    <img src={hFormul} alt="img" />
   </li>,
 }
 
@@ -100,7 +143,7 @@ class Lesson extends Component {
                 d="M110.119,179.967v-0.059h99.879"
               />
               <path
-                onClick={() => this.setCaption('g')}
+                onClick={() => this.setCaption('h')}
                 className="cone-triangle-2"
                 fill="none"
                 stroke="#333"
@@ -108,7 +151,7 @@ class Lesson extends Component {
                 d="M210.471,178.059l-0.102,0.061L109.948,10.393"
               />
               <path
-                onClick={() => this.setCaption('o')}
+                onClick={() => this.setCaption('g')}
                 className="cone-triangle-3"
                 fill="none"
                 stroke="#333"
