@@ -36,6 +36,7 @@ class Topic extends Component {
           <div>
             {lessons.map(lesson =>
               <LessonPreview
+                key={lesson.name}
                 onClick={() => this.setActive(lesson)}
                 {...lesson}
               />
