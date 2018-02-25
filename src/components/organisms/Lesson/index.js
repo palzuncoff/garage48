@@ -7,15 +7,6 @@ import gFormul from './img/g.png'
 import hFormul from './img/h.png'
 import rFormul from './img/r.png'
 
-const tests = [
-  <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1"/>,
-  <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"/>,
-  <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3"/>,
-  <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide4"/>,
-  <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide5"/>,
-  <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide6"/>,
-]
-
 const Cone = styled.div`
   padding: 10px;
   display: flex;
@@ -96,6 +87,8 @@ const Crib = styled.ul`
   }
 `
 
+const Test = styled.div
+
 const captions = {
   r: <li>
     <img src={rFormul} alt="img" />
@@ -108,16 +101,61 @@ const captions = {
   </li>,
 }
 
+class Test1  extends Component {
+  componentWillMount() {
+    this.props.onLoad();
+  }
+
+  render() {
+    const { onComplete } = this.props
+    return (
+      <fieldset>
+        <div>Question 1</div>
+        <input type="checkbox" id={'answer-1'} />
+        <label htmlFor={'answer-1'}>Answer 1</label>
+        <input type="checkbox" id={'answer-2'} />
+        <label htmlFor={'answer-2'} onClick={onComplete}>Answer 2</label>
+        <input type="checkbox" id={'answer-3'} />
+        <label htmlFor={'answer-3'}>Answer 3</label>
+      </fieldset>
+    )
+  }
+}
+
+const tests = [
+  <Test1 />,
+  <fieldset>
+    <div>Question 2</div>
+    <input type="checkbox" id={'answer-4'} />
+    <label htmlFor={'answer-4'}>Answer 1</label>
+    <input type="checkbox" id={'answer-5'} />
+    <label htmlFor={'answer-5'}>Answer 2</label>
+    <input type="checkbox" id={'question-6'} />
+    <label htmlFor={'question-6'}>Answer 3</label>
+  </fieldset>,
+]
+
 class Lesson extends Component {
   state = {
     captionId: 'g',
+    testId: null,
+    canMoveOn: true,
   }
+
+  activateNextButton = () => this.setState({ canMoveOn: true })
+
+  deactivateNextButton = () => this.setState({ canMoveOn: false })
 
   setCaption = id => this.setState({ captionId: id })
 
+  showNextTest = () => this.setState({ testId: this.state.testId + 1 })
+
+  startOver = () => this.setState({ testId: 0 })
+
   render() {
     const { name } = this.props;
-    const { captionId } = this.state
+    const { captionId, testId, canMoveOn } = this.state
+    console.log(this.state);
 
     return (
       <div>
@@ -167,6 +205,29 @@ class Lesson extends Component {
             {captions[captionId]}
           </Crib>
       </Cone>
+        <form>
+          {!testId &&
+            <input type="button" value="Start" onClick={this.showNextTest}/>}
+          {testId === 1 ?
+            <div>
+              <Test1
+                onComplete={this.activateNextButton}
+                onLoad={this.deactivateNextButton}
+              />
+              <input
+                type="button"
+                value="Next"
+                onClick={this.showNextTest}
+                disabled={!canMoveOn}
+              />
+            </div>
+            : null
+          }
+          {testId && testId === tests.length + 1 ?
+            <input type="button" value="Done" onClick={this.startOver}/>
+            : null
+          }
+        </form>
       </div>
     )
   }
