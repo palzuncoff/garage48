@@ -155,7 +155,6 @@ class Lesson extends Component {
   render() {
     const { name } = this.props;
     const { captionId, testId, canMoveOn } = this.state
-    console.log(this.state);
 
     return (
       <div>
@@ -223,7 +222,7 @@ class Lesson extends Component {
             </div>
             : null
           }
-          {testId && testId === tests.length + 1 ?
+          {testId && testId === tests.length ?
             <input type="button" value="Done" onClick={this.startOver}/>
             : null
           }
