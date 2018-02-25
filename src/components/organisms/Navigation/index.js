@@ -20,7 +20,7 @@ const NavWrap = styled.div`
       display: block;
       font-weight: 400;
       font-size: 15px;
-      color: #2c3e50;
+      color: #fff;
       text-decoration: none;
       &:hover {
         color: #f63;

@@ -5,7 +5,7 @@ import { Navigation } from 'components'
 
 const Head = styled.header`
     box-shadow: 0 1px 10px rgba(0,0,0,.08);
-    background: #fff;
+    background: #545eb0;
 `
 
 const Wrapper = styled.div`

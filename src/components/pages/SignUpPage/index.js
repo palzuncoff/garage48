@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import bg from './img/suspension-bridge.jpg'
 import logo from './img/logo.png'
@@ -122,13 +121,6 @@ const SignUpBgOverlay = styled.div`
     @media screen and (max-width: 768px) {
         padding-top: 4em;
     }
-    @media screen
-            and (min-device-width: 320px)
-            and (max-device-width: 1024px)
-            and (-webkit-min-device-pixel-ratio: 2)
-            and (orientation: landscape) {
-                padding: 0;
-            }
 `
 
 const SignUpListIcons = styled.ul`
@@ -292,7 +284,7 @@ const SignUpInputEmailAndPassword = styled.div`
         and (max-device-width: 1024px)
         and (-webkit-min-device-pixel-ratio: 2)
         and (orientation: landscape) {
-            padding-top: 1em;
+            padding-top: 2em;
         }
 `
 
@@ -422,31 +414,31 @@ class SignUpPage extends Component {
             <p className={`logo-title ${this.state.logoTitle}`}>Login with</p>
             <SignUpListIcons>
               <li className="list-icons__li">
-                <Link to="/" className="list-icons__icon">
+                <a href="javascript:void(0)" className="list-icons__icon">
                   <img
                     src={google}
                     alt="google"
                     className="list-icons__img"
                   />
-                </Link>
+                </a>
               </li>
               <li className="list-icons__li">
-                <Link to="/" className="list-icons__icon">
+                <a href="javascript:void(0)" className="list-icons__icon">
                   <img
                     src={facebook}
                     alt="facebook"
                     className="list-icons__img"
                   />
-                </Link>
+                </a>
               </li>
               <li className="list-icons__li">
-                <Link to="/" className="list-icons__icon">
+                <a href="javascript:void(0)" className="list-icons__icon">
                   <img
                     src={twitter}
                     alt="twitter"
                     className="list-icons__img"
                   />
-                </Link>
+                </a>
               </li>
             </SignUpListIcons>
             <p className="login-subtitle">or</p>
@@ -475,13 +467,13 @@ class SignUpPage extends Component {
             <SignUpBt>Login</SignUpBt>
             <SignUpFooterNav>
               <li className="login-footer__li">
-                <Link to="/" className="login-footer__link">Rigister</Link>
+                <a href="javascript:void(0)" className="login-footer__link">Rigister</a>
               </li>
               <li className="login-footer__li">
                 <span className="bar-separator" />
               </li>
               <li className="login-footer__li">
-                <Link to="/" className="login-footer__link">Can’t sign in</Link>
+                <a href="javascript:void(0)" className="login-footer__link">Can’t sign in</a>
               </li>
             </SignUpFooterNav>
           </SignUpBgOverlay>

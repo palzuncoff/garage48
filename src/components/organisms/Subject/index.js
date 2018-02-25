@@ -3,233 +3,213 @@ import React, { Component, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import holder from './img/holder.png'
-import coub from './img/coub.jpg'
-import zigzag from './img/zigzag.png'
-
-const HolderImage = () => <img alt="Logo" src={holder} />
-const CoubImage = () => <img alt="Logo" src={coub} />
-const ZigzagImage = () => <img alt="Logo" src={zigzag} />
 
 const SubjectContent = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 1em;
+    align-items: center;
+    justify-content: center;
     @media screen and (max-width: 720px) {
         flex-direction: column;
     }
 `
 
-const SubjectMain = styled.section`
-    flex: 0 0 68%;
-    box-sizing: border-box;
-    border-radius: 3px;
-    background: #fff;
-    box-shadow: 0 1px 2px rgba(0,0,0,.1);
-    margin-bottom: 1em;
-    @media screen and (max-width: 720px) {
-        width: 100%;
-    }
-`
-
-const SubjectSide = styled.aside`
-    flex: 0 0 30%;
-    box-sizing: border-box;
-    border-radius: 3px;
-    background: #fff;
-    box-shadow: 0 1px 2px rgba(0,0,0,.1);
-    padding: 1em;
-    @media screen and (max-width: 720px) {
-        width: 100%;
-    }
-`
-
-const SubjectSideContent = styled.section`
-    background: #fff;
-    dl {
-        margin: 0;
-        position: relative;
-        box-sizing: border-box;
-        dt {
-            color: #8196a7;
-            border-bottom: 1px solid #ebf0f2;
-            line-height: 40px;
-        }
-        dd {
-            position: absolute;
-            margin-top: -40px;
-            right: 0;
-            font-weight: 600;
-            text-align: right;
-            color: #586573;
-            line-height: 40px;
-        }
-    }
-`
-
-const SubjectPanelHeader = styled.div`
-    border-bottom: 1px solid rgba(0,0,0,.05);
-    padding: .5rem 1rem;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    h4 {
-        font-size: .85rem;
-        margin: 0;
-        color: #4e5860;
-        text-transform: uppercase;
-        letter-spacing: .1em;
-        margin-bottom: 0;
-        font-weight: 600;
-    }
-`
-
-const SubjectPanelContent = styled.div`
-    margin: 0;
-    padding: 1em;
-`
-
 const SubjectPanelList = styled.ul`
-    width: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
     li {
-        display: flex;
-        align-items: center;
-        height: 3em;
-        border-bottom: 1px solid #f2f2f2;
-        padding: 0 10px;
-        &:hover {
-            background: #f7f7f7;
+        text-align: center;
+        padding: 2em 0;
+        a {
+            text-decoration: none;
+        }
+        > a {
+            color: #000;
+        }
+        &:nth-child(3n+3) {
+            position: relative;
+            right: 75px;
+        }
+        &:nth-child(3n+4) {
+            position: relative;
+            left: 75px;
+            top: -231px;
         }
     }
 `
 
-const SubjectPanelListCard = styled.div`
-      display: inline-block;
-      position: relative;
-      margin: 0 1em;
-      @media screen and (max-width: 720px) {
-          margin: 0 .5em;
-      }
+const SubjectPanelListCircle = styled.div`
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background: #5077da;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
-const SubjectPanelListCardLabel = styled.div`
-      box-sizing: border-box;
-      display: inline-block;
-      vertical-align: middle;
-      position: relative;
-      background: #70929c;
-      width: 25px;
-      height: 25px;
+const SubjectPanelListCircleInner = styled.div`
+    width: 85px;
+    height: 85px;
+    margin: 0 auto;
+    background: #5077da;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 2em;
+    font-style: italic;
+    border: 3px solid #fff;
 `
 
-const SubjectPanelListCardBody = styled.div`
-      box-sizing: border-box;
-      display: inline-block;
-      vertical-align: middle;
-      padding-left: 1em;
-      width: calc(100% - 32px);
-      font-size: 16px;
-      a {
-          font-size: 1em;
-          color: #4e5860;
-          font-weight: 500;
-          margin: 0;
-          padding: 0;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          text-decoration: none;
-          &:hover {
-              text-decoration: underline;
-          }
-      }
-      h3 {
-          font-size: 13px;
-          color: #8d9aa5;
-          font-weight: 300;
-          margin-bottom: 0;
-          margin-top: 0;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-      }
-      @media screen and (max-width: 500px) {
-          width: auto;
-          max-width: 10em;
-          overflow: hidden;
-      }
-      @media screen and (max-width: 400px) {
-          max-width: 8em;
-      }
+const SubjectPanelListProgressBar = styled.div`
+    width: 100px;
+    height: 5px;
+    background: #c1bbe0;
+    border-radius: 3px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    margin-top: .5em;
 `
 
-const SubjectPanelListCardButton = styled.button`
-      color: #09c;
-      background: #fff;
-      border: 1px solid #09c;
-      margin-left: auto;
-      font-size: 12px;
-      cursor: pointer;
-      outline: none;
-      transition: all .3s;
+const SubjectPanelListProgressLine = styled.div`
+    width: 20%;
+    height: 5px;
+    background: #5077da;
+    border-radius: 3px;
+    margin: 0 auto;
+    position: absolute;
+`
+
+const SubjectPanelListProgress = styled.p`
+    color: #8f8e97;
+    margin: 0;
+    padding-top: .5em;
+`
+
+const SubjectPanelTopicName = styled.p`
+    margin: 0;
+    padding-top: .5em;
+`
+
+const Cone = styled.div`
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .cone-info {
+      display: none;
+  }
+  .cone-triangle {
+    &-1 {
       &:hover {
-          color: #fff;
-          background: #09c;
+        stroke: red;
+        cursor: pointer;
+        stroke-width: 3;
       }
+    }
+    &-2 {
+      &:hover {
+        stroke: blue;
+        cursor: pointer;
+        stroke-width: 3;
+      }
+    }
+    &-3 {
+      &:hover {
+        stroke: orange;
+        cursor: pointer;
+        stroke-width: 3;
+      }
+    }
+  }
 `
+
+const Crib = styled.ul`
+  list-style: none;
+`
+
 class Subject extends Component {
+    state = {
+        coneTriangle1: '',
+        coneTriangle2: '',
+        coneTriangle3: '',
+      };
   renderTopics = (topic, index) =>(
     <li key={topic._id}>
-      <span>{index + 1}</span>
-      <SubjectPanelListCard>
-        <SubjectPanelListCardLabel>
-          <CoubImage />
-        </SubjectPanelListCardLabel>
-        <SubjectPanelListCardBody>
-          <Link to={`/subjects/${topic._id}/topic1`}>Sub Topic - {topic.name}</Link>
-          <h3>Description</h3>
-        </SubjectPanelListCardBody>
-      </SubjectPanelListCard>
-      <SubjectPanelListCardButton>View</SubjectPanelListCardButton>
+      <Link to={`/subjects/${topic._id}/topic1`}>
+        <SubjectPanelListCircle>
+            <SubjectPanelListCircleInner>
+                log
+            </SubjectPanelListCircleInner>
+        </SubjectPanelListCircle>
+        <SubjectPanelTopicName>
+        </SubjectPanelTopicName>
+            {topic.name}
+        <SubjectPanelListProgressBar>
+            <SubjectPanelListProgressLine />
+        </SubjectPanelListProgressBar>
+        <SubjectPanelListProgress>1/5</SubjectPanelListProgress>
+      </Link>
     </li>
   )
 
   render() {
     const { subject } = this.props
     return (
-      <SubjectContent>
-        <SubjectMain>
-          <SubjectPanelHeader>
-            <h4>{subject.name}</h4>
-          </SubjectPanelHeader>
-          <SubjectPanelContent>
-            <SubjectPanelList>
-              {subject.topics.map(this.renderTopics)}
-            </SubjectPanelList>
-          </SubjectPanelContent>
-        </SubjectMain>
+        <div>
+            <SubjectContent>
+                <SubjectPanelList>
+                    {subject.topics.map(this.renderTopics)}
+                </SubjectPanelList>
+            </SubjectContent>
 
-        <SubjectSide>
-          <SubjectSideContent>
-            <dl>
-              <dt>lorem</dt>
-              <dd>10%</dd>
-              <dt>lorem</dt>
-              <dd>20%</dd>
-              <dt>lorem</dt>
-              <dd>30%</dd>
-              <dt>lorem</dt>
-              <dd>40%</dd>
-              <dt>lorem</dt>
-              <dd>50%</dd>
-            </dl>
-          </SubjectSideContent>
-        </SubjectSide>
+            <Cone>
+                <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220">
+                    <g stroke="#333" fill="none">
+                        <path 
+                        d="M208.430591,174.705882 L110,10 L11.569409,174.705882 a100,30 0 1,0 196.861182,0" strokeWidth="3"/>
+                        <path 
+                        d="M11.1314,174.705882 a100,30 0 0,1 196.861182,0" 
+                        strokeDasharray="5,5" 
+                        strokeWidth="3"/>
+                        <path
+                        className="cone-triangle-1" 
+                        fill="none" 
+                        stroke="#333" 
+                        strokeWidth="2" 
+                        d="M110.119,179.967v-0.059h99.879"/>
+                        <path 
+                        className="cone-triangle-2" 
+                        fill="none" 
+                        stroke="#333" 
+                        strokeWidth="1" 
+                        d="M210.471,178.059l-0.102,0.061L109.948,10.393"/>
+                        <path 
+                        className="cone-triangle-3" 
+                        fill="none" 
+                        stroke="#333" 
+                        strokeWidth="2" 
+                        d="M109.833,180H109.8V10"/>
+                    </g>
+                    <text x="95" y="100">H</text>
+                    <text x="150" y="175">R</text>
+                    <text x="175" y="110">G</text>
+                </svg>
+                <Crib>
+                    <li className={`coneTriangle1 cone-info ${this.state.coneTriangle1}`}>red</li>
+                    <li className={`coneTriangle2 cone-info ${this.state.coneTriangle1}`}>blue</li>
+                    <li className={`coneTriangle3 cone-info ${this.state.coneTriangle1}`}>orange</li>
+                </Crib>
+            </Cone>
+        </div>
 
-      </SubjectContent>
     );
   }
 };
