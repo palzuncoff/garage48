@@ -173,7 +173,7 @@ class Lesson extends Component {
               />
               <path
                 onClick={() => this.setCaption('r')}
-                className="cone-triangle-1"
+                className={`cone-triangle-1 ${captionId === 'r' ? 'cone-triangle-1__active' : ''}`}
                 fill="none"
                 stroke="#333"
                 strokeWidth="2"
@@ -181,7 +181,7 @@ class Lesson extends Component {
               />
               <path
                 onClick={() => this.setCaption('h')}
-                className="cone-triangle-2"
+                className={`cone-triangle-2 ${captionId === 'h' ? 'cone-triangle-2__active' : ''}`}
                 fill="none"
                 stroke="#333"
                 strokeWidth="1"
@@ -189,7 +189,7 @@ class Lesson extends Component {
               />
               <path
                 onClick={() => this.setCaption('g')}
-                className="cone-triangle-3"
+                className={`cone-triangle-3 ${captionId === 'r' ? 'cone-triangle-3__active' : ''}`}
                 fill="none"
                 stroke="#333"
                 strokeWidth="2"
