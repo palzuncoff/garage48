@@ -5,16 +5,43 @@ import PropTypes from 'prop-types'
 import { Link, Route } from 'react-router-dom'
 import styled from 'styled-components'
 
+const LessonPreview = ({ onClick, name }) => {
+  return (
+    <div onClick={onClick}>
+      {name}
+    </div>
+  )
+}
+
 class Topic extends Component {
+  state = {
+    activeLesson: null,
+  }
+
+  setActive = lesson => this.setState({ activeLesson: lesson });
+
+  closeLesson = () => this.setState({ activeLesson: null })
+
   render() {
     const { onBack, topic, lessons } = this.props
+    const { activeLesson } = this.state
+    console.log(activeLesson)
     return (
       <div>
         <button type="button" onClick={onBack}>&larr;</button>
         <span>{topic.name}</span>
-        <div>
-          {lessons.map(lesson => <div>Lesson - {lesson}</div>)}
-        </div>
+        {activeLesson ? (
+          <Lesson {...activeLesson}/>
+        ) : (
+          <div>
+            {lessons.map(lesson =>
+              <LessonPreview
+                onClick={() => this.setActive(lesson)}
+                {...lesson}
+              />
+            )}
+          </div>
+        )}
       </div>
     )
   }
@@ -29,7 +56,9 @@ Topic.propTypes = {
 
 Topic.defaultProps = {
   lessons: [
-    1, 2, 3, 4, 5
+    { name: 'Vera' },
+    { name: 'Nadejda' },
+    { name: 'Liubov' },
   ]
 }
 
